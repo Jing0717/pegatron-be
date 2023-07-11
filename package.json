@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "NODE_ENV=prod node ./bin/www",
     "start:dev": "NODE_ENV=dev nodemon ./bin/www",
     "start:prod": "NODE_ENV=prod nodemon ./bin/www"
   },
@@ -23,5 +23,8 @@
   },
   "devDependencies": {
     "eslint": "^8.44.0"
+  },
+  "engines": {
+    "node": "v16.x"
   }
 }

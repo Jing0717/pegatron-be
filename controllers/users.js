@@ -10,12 +10,13 @@ const userController = {
   },
   userCreate: async (req, res, next) => {
     let { name, age, avatar } = req.body;
-    if (!name || !age || !avatar) {
+    if (!name || !age) {
       return appError(400, '欄位未正確填寫', next);
     }
+    avatar = avatar || 'https://i.imgur.com/lMlmOj2.png';
     const currentUser = await User.create({ name, age, avatar });
     const userPayload = {
-      id: currentUser._id,
+      _id: currentUser._id,
       name: currentUser.name,
       age: currentUser.age,
       avatar: currentUser.avatar,

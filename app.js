@@ -34,7 +34,6 @@ app.use(function (req, res, next) {
 // *自己設定的 err 錯誤
 const resErrorProd = (err, res) => {
   res.status(err.statusCode || 500).send({
-    status: err.statusCode,
     name: err.name,
     message: err.message,
   });
@@ -56,7 +55,6 @@ app.use(function (err, req, res, next) {
   // production
   if (err.name === 'ValidationError') {
     err.message = '資料欄位未填寫正確，請重新輸入！';
-    err.isOperational = true;
     return resErrorProd(err, res);
   }
   resErrorProd(err, res);

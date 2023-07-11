@@ -14,7 +14,6 @@ const userSchema = {
   },
   avatar: {
     type: String,
-    default: 'https://i.imgur.com/lMlmOj2.png',
     validate: {
       validator: function (v) {
         // 使用正則表達式來驗證 URL
